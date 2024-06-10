@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cricket Score</title>
+</head>
+
+<body>
+    <div id="main">
+        <div class="display">
+            <span id="score"></span>
+        </div>
+        <div class="run">
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="4">4</button>
+            <button id="6">6</button>
+        </div>
+        <div class="action">
+            <button id="dotball">Dot Ball</button>
+            <button id="wicket">Wicket</button>
+            <select name="noball" id="noball" style="text-align: center;">
+                <option value="NB" id="nb" selected>No Ball</option>
+                <option value="NB+1" id="nb+1">NB+1</option>
+                <option value="NB+2" id="nb+2">NB+2</option>
+                <option value="NB+3" id="nb+3">NB+3</option>
+                <option value="NB+4" id="nb+4">NB+4</option>
+                <option value="NB+6" id="nb+6">NB+6</option>
+            </select>
+            <select name="wideball" id="wideball" style="width: auto; text-align: center;">
+                <option value="WB" id="wb" selected>Wide Ball</option>
+                <option value="WB+1" id="wb+1">WB+1</option>
+                <option value="WB+2" id="wb+2">WB+2</option>
+                <option value="WB+3" id="wb+3">WB+3</option>
+                <option value="WB+4" id="wb+4">WB+4</option>
+            </select>
+            <select name="legbye" id="legbye" style="text-align: center;">
+                <option value="lb" id="lb" selected>LegBye</option>
+                <option value="lb+1" id="lb+1">LB+1</option>
+                <option value="lb+2" id="lb+2">LB+2</option>
+                <option value="lb+3" id="lb+3">LB+3</option>
+                <option value="lb+4" id="lb+4">LB+4</option>
+            </select>
+        </div>
+        <div class="action1">
+            <button id="over">New Over</button>
+            <button id="inning">New Inning</button>
+        </div>
+        <div class="total">
+            <h3 id="team2msg" style="display: none;">
+                Team 2 start their inning
+                <br> Target is: <span id="targetscore"></span>
+            </h3>
+            <p>
+                Current Over Run:
+                <span id="currentoverun"></span>
+            </p>
+            <p>
+                Current Over Wicket:
+                <span id="currentoverwicket"></span>
+            </p>
+            <p>
+                Total Run:
+                <span id="totalrun"></span>
+            </p>
+            <p>
+                Total Wicket:
+                <span id="wicketcount"></span>
+                <span id="allout"></span>
+            </p>
+            <h2 id="winner"></h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

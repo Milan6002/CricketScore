@@ -11,6 +11,9 @@ var count_over_ball = 0;
 var runtowin = 0;
 var numberinning = 0;
 var scoreArray = [];
+var x = window.matchMedia("(max-width: 429px)")
+var y = window.matchMedia("(max-height: 927px)");
+
 
 function updateScoreDisplay() {
     score.innerHTML = '';
@@ -23,31 +26,39 @@ function updateScoreDisplay() {
 }
 
 function winner() {
-    document.getElementById('main').style.height = "500px"
+    document.getElementById('main').style.height = "26.042vw"
     if (totalScore + current_over_run >= runtowin) {
         document.getElementById('winner').innerHTML = "Team 2 wins";
         totalScore += current_over_run;
         totalrun.innerHTML = totalScore;
         document.getElementById('inning').style.display = '';
+        numberinning = 2;
     } else if (totalScore + current_over_run == runtowin - 1 && totalwicket == 10) {
         document.getElementById('winner').innerHTML = "Match tie";
         document.getElementById('inning').style.display = '';
+        numberinning = 2;
     } else if (totalwicket == 10) {
         document.getElementById('winner').innerHTML = "Team 1 wins";
         document.getElementById('inning').style.display = '';
+        numberinning = 2;
     }
 }
 
 function updateover() {
     if (count_over_ball == 6) {
-        document.getElementById('main').style.width = '500px';
-        document.getElementById('main').style.height = '420px';
+        document.getElementById('main').style.width = '26.042vw';
+        document.getElementById('main').style.height = '26.875vw';
+        document.getElementById('over').style.display = "inline-block";
+    }
+    if(x.matches && y.matches && count_over_ball==6){
+        document.getElementById('main').style.height = '85vw';
+        document.getElementById('main').style.width = 'auto';
         document.getElementById('over').style.display = "inline-block";
     }
 }
 
 function handleRun(run) {
-    if (totalwicket < 10 && count_over_ball < 6) {
+    if (totalwicket < 10 && count_over_ball < 6 && numberinning < 2) {
         current_over_run += run;
         scoreArray.push(run);
         updateScoreDisplay();
@@ -61,7 +72,7 @@ function handleRun(run) {
 }
 
 function handleWicket() {
-    if (totalwicket < 10 && count_over_ball < 6) {
+    if (totalwicket < 10 && count_over_ball < 6 && numberinning < 2) {
         scoreArray.push('W');
         updateScoreDisplay();
         current_over_wicket++;
@@ -75,15 +86,21 @@ function handleWicket() {
     if (totalwicket == 10) {
         wicketcount.innerHTML = totalwicket;
         document.getElementById('allout').innerHTML = " All out";
-        document.getElementById('main').style.width = '500px';
-        document.getElementById('inning').style.display = "inline-block";
+        if(x.matches && y.matches){
+            document.getElementById('main').style.width = 'auto';
+            document.getElementById('main').style.height = '85vw';
+            document.getElementById('inning').style.display = "inline-block";
+        }else{
+            document.getElementById('main').style.width = '26.042vw';
+            document.getElementById('inning').style.display = "inline-block";
+        }
         return;
     }
     updateover();
 }
 
 function handleNoBall(extraRuns) {
-    if (totalwicket < 10 && count_over_ball < 6) {
+    if (totalwicket < 10 && count_over_ball < 6 && numberinning < 2) {
         scoreArray.push(`NB+${extraRuns}`);
         updateScoreDisplay();
         current_over_run += (1 + extraRuns);
@@ -96,7 +113,7 @@ function handleNoBall(extraRuns) {
 }
 
 function handleWideBall(extraRuns) {
-    if (totalwicket < 10 && count_over_ball < 6) {
+    if (totalwicket < 10 && count_over_ball < 6&& numberinning < 2) {
         scoreArray.push(`WB+${extraRuns}`);
         updateScoreDisplay();
         current_over_run += (1 + extraRuns);
@@ -109,7 +126,7 @@ function handleWideBall(extraRuns) {
 }
 
 function handleLegBye(extraRuns){
-    if (totalwicket < 10 && count_over_ball < 6) {
+    if (totalwicket < 10 && count_over_ball < 6 && numberinning < 2) {
         scoreArray.push(`LB+${extraRuns}`);
         updateScoreDisplay();
         current_over_run += extraRuns;
@@ -133,8 +150,13 @@ function handleNewOver() {
     currentoverwicket.innerHTML = '';
     scoreArray = [];
     updateScoreDisplay();
-    document.getElementById('main').style.width = '500px';
+    if(x.matches && y.matches){
+        document.getElementById('main').style.width = 'auto';
+    }else{
+        document.getElementById('main').style.width = '26.042vw';
+    }
     document.getElementById('over').style.display = '';
+
 }
 
 function handleNewInning() {
@@ -150,8 +172,13 @@ function handleNewInning() {
     current_over_wicket = 0;
     scoreArray = [];
     updateScoreDisplay();
-    document.getElementById('main').style.width = '500px';
-    document.getElementById('main').style.height = '420px';
+    if(x.matches && y.matches){
+        document.getElementById('main').style.width = 'auto';
+        document.getElementById('main').style.height = '85vw';
+    }else{
+        document.getElementById('main').style.width = '26.042vw';
+        document.getElementById('main').style.height = '25.875vw';
+    }
     document.getElementById('over').style.display = '';
     document.getElementById('inning').style.display = '';
     document.getElementById('allout').innerHTML = '';

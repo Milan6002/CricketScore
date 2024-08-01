@@ -1,7 +1,7 @@
 body {
     background-color: black;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
+    font-size: 0.781vw;
 }
 
 #score {
@@ -12,15 +12,15 @@ body {
 }
 
 .score-item {
-    margin: 2px;
-    padding: 6px;
-    line-height: 40px;
-    height: 40px;
-    min-width: 40px;
+    margin: 0.104vw;
+    padding: 0.313vw;
+    line-height: 2.083vw;
+    height: 2.083vw;
+    min-width: 2.083vw;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid #04d9ff;
-    font-size: 15px;
+    border: 0.104vw solid #04d9ff;
+    font-size: 0.781vw;
 }
 
 #main {
@@ -28,24 +28,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 350px;
-    width: 500px;
+    height: 18.229vw;
+    width: 26.042vw;
     background-color: black;
     color: white;
     box-shadow: 10px 10px 500px 100px #04d9ff;
-    margin-left: 35%;
-    margin-top: 13%;
-    border-radius: 10px;
+    margin-left: 35vw;
+    margin-top: 13vw;
+    border-radius: 0.521vw;
 }
 
 .run>button {
-    font-size: 15px;
-    height: 50px;
-    width: 50px;
-    margin-top: 10px;
+    font-size: 0.781vw;
+    height: 2.604vw;
+    width: 2.604vw;
+    margin-top: 0.521vw;
     font-weight: 900;
-    border: 2px solid white;
-    border-radius: 10px;
+    border: 0.104vw solid white;
+    border-radius: 0.521vw;
     background-color: transparent;
     color: white;
 }
@@ -63,27 +63,31 @@ body {
 
 .action>button,
 .action>select {
-    border: 2px solid white;
+    border: 0.104vw solid white;
     color: white;
-    border-radius: 10px;
+    border-radius: 0.521vw;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 0.781vw;
     font-weight: 900;
-    height: 50px;
-    width: 88px;
-    margin-top: 15px;
+    height: 2.604vw;
+    width: 4.583vw;
+    margin-top: 0.781vw;
 
 }
-.action1>button{
-    border: 2px solid white;
+
+.action1>button {
+    border: 0.104vw solid white;
     color: white;
-    border-radius: 10px;
+    border-radius: 0.521vw;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 0.781vw;
     font-weight: 900;
-    height: 50px;
-    width: 88px;
-    margin-top: 15px;
+    height: 2.604vw;
+    width: 4.583vw;
+    margin-top: 0.781vw;
+}
+.action>select>option{
+    background-color: black;
 }
 #over {
     display: none;
@@ -91,5 +95,66 @@ body {
 
 #inning {
     display: none;
-    width: 100px;
+    width: 5.208vw;
+}
+
+
+@media (max-width:429px) and (max-height:927px) {
+    body{
+        font-size: 3.5vw;
+    }
+    #main {
+        height: 80vw;
+        width: auto;
+        margin-left: 0vw;
+        margin-top: 65vw;
+        box-shadow: 10px 10px 500px 100px #04d9ff;
+        border-radius: 0.521vw;
+    }
+    .score-item {
+        line-height: 9.8vw;
+        height: 10vw;
+        min-width: 10vw;
+        border: 0.5vw solid #04d9ff;
+        font-size: 4vw;
+    }
+    .run>button {
+        font-size: 3vw;
+        height: 10vw;
+        width: 10vw;
+        margin-top: 3vw;
+        font-weight: 900;
+        border: 0.5vw solid white;
+        margin-left: 1.5vw;
+        border-radius: 3vw;
+    }
+    
+    .action>button,
+    .action>select {
+        font-size: 2.8vw;
+        height: 8vw;
+        width: 17vw;
+        margin-top: 3vw;
+        font-weight: 900;
+        border: 0.5vw solid white;
+        margin-left: 0.5vw;
+        border-radius: 3vw;
+    }
+
+    .action1>button {
+        font-size: 3vw;
+        height: 8vw;
+        width: 17vw;
+        margin-top: 3vw;
+        font-weight: 900;
+        border: 0.5vw solid white;
+        margin-left: 0.5vw;
+        border-radius: 3vw;
+    }
+    #over{
+        width: 20vw;
+    }
+    #inning{
+        width: 22vw;
+    }
 }
